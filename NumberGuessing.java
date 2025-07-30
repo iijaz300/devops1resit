@@ -1,4 +1,4 @@
-// Java Program to demonstrates the Number guessing game
+// Java Program to demonstrate the Number Guessing Game
 import java.util.Scanner;
 
 public class NumberGuessing {
@@ -20,7 +20,6 @@ public class NumberGuessing {
             System.out.print("Enter your guess: ");
             int guess = sc.nextInt();
 
-            // Check conditions
             if (guess == number) {
                 System.out.println(" Congratulations! You guessed the correct number.");
                 sc.close();
@@ -32,12 +31,19 @@ public class NumberGuessing {
             }
         }
 
-        // If the user runs out of attempts
+        // If user runs out of attempts
         System.out.println("You've exhausted all attempts. The correct number was: " + number);
         sc.close();
     }
 
     public static void main(String[] args) {
         guessingNumberGame();
+    }
+
+    // Method added for unit testing
+    public static String provideHint(int guess, int target) {
+        if (guess < target) return "Try higher.";
+        else if (guess > target) return "Try lower.";
+        else return "Correct!";
     }
 }
